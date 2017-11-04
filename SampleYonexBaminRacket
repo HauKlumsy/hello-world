@@ -1,0 +1,25 @@
+/*
+ * Hau Truong
+ * Assignment 8
+ * 5/1/2016
+ */
+
+public class YonexDemo {
+
+	public static void main(String[] args) 
+	{	
+		
+		// first constructor without parameter using the sub class
+		YonexBadmintonRacket c = new YonexBadmintonRacket();
+		c.setName ("Yonext #1");
+		c.setGripLayer(2);
+		c.setTension(25.0);
+		c.setType("Nanoray");
+		c.displayYonexRacket();
+		
+		//second constructor with parameter using the sub class
+		YonexBadmintonRacket d = new YonexBadmintonRacket("Yonex #2",26,3,"Muscle Power");
+		d.displayYonexRacket();
+	}
+
+}
