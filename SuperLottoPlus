@@ -1,0 +1,123 @@
+/*
+ * Hau Truong
+ * Assignment 7
+ * 04/09/2016
+ */
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class SuperLottoPlus 
+{
+	
+	
+	public static void main (String[]args)
+	{
+		System.out.println("How many lottery do you want to purchase?");
+		Scanner keyboard = new Scanner(System.in);
+		int numbersOfTickets = keyboard.nextInt();
+		for(int i = 0; i < numbersOfTickets; i++)
+		{
+			generateSuperLottoNumbers();
+			printTicket(generateSuperLottoNumbers());
+		}
+		System.out.println("Do you want to buy lotto ticket with no dupes numbers?");
+		char answer = keyboard.next().charAt(0);
+		if (answer == 'y' || answer=='Y')
+		{
+			System.out.println("How many tickets do you want to purchase?");
+			int n = keyboard.nextInt();
+			for (int i = 0; i < n; i++)
+			{
+				generateSuperLottoNoDupes();
+				printTicket(generateSuperLottoNoDupes());
+				System.out.println("Thank you for your purchase, have a wonderful day!");
+			}
+		}
+		else
+		{
+			System.out.println("Bye, have a wonderful time!");
+		}
+	}
+
+	//First static method to generate 6 numbers
+	public static int[] generateSuperLottoNumbers()
+	{	
+		Random rand = new Random();
+		int size = 6;
+		int[] ticket = new int[size];
+		for(int i = 0; i < ticket.length; i++)
+		{
+			if( i == (ticket.length - 1))
+			{
+				ticket[i] = rand.nextInt(27)+1;
+				
+			}
+			else
+			{
+				ticket[i] = rand.nextInt(47)+1;
+			}
+		}
+		return ticket;
+	}
+	
+	
+	//Second static method to print out the ticket	
+	public static void printTicket(int[] number)
+	{
+		for(int i = 0; i < number.length; i++)
+		{
+
+			if(i == (number.length - 1))
+			{
+				System.out.print(" MEGA ("+ number[i]+")");
+				System.out.println();
+				
+			}
+			else
+			{
+				System.out.print(number[i]+" ");
+			}
+		}		
+	}
+	//method generate no dupes numbers
+	public static ArrayList<Integer> generateSuperLottoNoDupes() 
+	{	
+		Random rand = new Random();
+		int numbers = 6;
+		ArrayList<Integer> lottoTicket = new ArrayList<Integer>(numbers);
+		while(lottoTicket.size() < numbers)
+		{			
+			if(lottoTicket.size() != (numbers-1))
+			{	
+				int random = rand.nextInt(47)+1;
+				if (!lottoTicket.contains(random))
+				{
+					lottoTicket.add(random);
+				}
+			}else
+			{
+				int random = rand.nextInt(27)+1;
+				lottoTicket.add(random);
+			}			
+		}		
+		return lottoTicket;
+	}
+	
+	//method to print lotto ticket no dupes
+	public static void printTicket(ArrayList<Integer> prt)
+	{
+		for (int i = 0; i < prt.size(); i++)
+		{
+			if (i == (prt.size()-1))
+			{
+				System.out.print("MEGA(" + prt.get(i) + ")");
+				System.out.println();
+			}
+			else
+			{
+				System.out.print(prt.get(i)+ " ");
+			}
+		}
+	}
+}
