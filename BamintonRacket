@@ -1,0 +1,65 @@
+
+
+public class BadmintonRacket {
+	
+	//3 private instance fields
+	private double tension;
+	private String name;
+	private int gripLayer;
+	
+	
+	//setter and getter for the first instance field: tension
+	public void setTension(double t)
+	{
+		tension = t;
+	}
+	public double getTension()
+	{
+		return tension;
+	}
+	
+	//setter and getter for racket name
+	public void setName(String n)
+	{
+		name = n;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	
+	//setter and getter for grip layer
+	public void setGripLayer(int g)
+	{
+		gripLayer = g;
+	}
+	public int getGripLayer()
+	{
+		return gripLayer;
+	}
+	
+	
+	
+	//method to display the data
+	public void displayRacket()
+	{
+		System.out.println("Your racket name will be " + name +"!");
+		System.out.println("Your racket string's tension will be " + tension + " pounds");
+		System.out.println("Your racket will have " + gripLayer + " layer(s)");
+	}
+	
+	
+	
+	//First constructor without parameter
+	public BadmintonRacket()
+	{}
+	
+	
+	//Second constructor with parameter
+	public BadmintonRacket(String x, double y, int z)
+	{
+		name=x;
+		tension=y;
+		gripLayer=z;
+	}
+}

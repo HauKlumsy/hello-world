@@ -1,0 +1,41 @@
+/*
+ * Hau Truong
+ * Assignment 8
+ * 5/1/2016
+ */
+
+
+public class YonexBadmintonRacket extends BadmintonRacket
+{
+	// one more field
+	private String series;
+
+	//getter and setter for the private field
+	public String getType() {
+		return series;
+	}
+
+	public void setType(String type) {
+		this.series = type;
+	}
+	
+	public YonexBadmintonRacket()
+	{
+		super ();
+		
+	}
+	
+	public YonexBadmintonRacket(String x, double y, int z, String t)
+	{
+		super(x,y,z);
+		series = t;
+	}
+	
+	//overriding the parent class display method using super
+	
+	public void displayYonexRacket()
+	{
+		super.displayRacket();
+		System.out.println("Your Yonex racket type is: " + series + ".");
+	}
+}
